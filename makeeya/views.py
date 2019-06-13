@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http  import HttpResponse
 from .forms import RequestForm
 from django.contrib import messages
-from .models import Buyer, Seller, Request, Category
+from .models import Buyer,Profile, Request, Category
+from .email import send_notification_email
 
 # Create your views here.
 def home(request):
@@ -16,7 +17,7 @@ def post_request(request):
             request.save()
             name = request.business_name
             email = request.business_email
-            send_welcome_email(name, email)
+            send_notification_email(name, email)
             HttpResponseRedirect('home')
             return redirect('home')
   
