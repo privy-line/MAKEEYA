@@ -10,7 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+
+from decouple import config
 import os
+
+# Email configurations remember to install python-decouple
+
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +42,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'makeeya',
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +88,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'make',
-        'USER': 'pauline',
-    'PASSWORD':'kalioli050718',
+        'USER': 'nicole',
+    'PASSWORD':'123456',
     }
 }
 # Password validation

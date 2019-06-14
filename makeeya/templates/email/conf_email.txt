@@ -1,0 +1,11 @@
+
+Hello {{Contact_name}}
+
+Thank you for your interest in MAKEEYA services. 
+Your request has been successfully sent. 
+Please wait while we authenticate your details, we will get back to you on this email address within the next 4 hours.
+Note that this is an automatic email, so you do not have to reply. 
+
+Regards,
+MAKEEYA Team
+
