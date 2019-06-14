@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+ 
+ 
+ 
 from decouple import config
 import os
 
@@ -40,9 +43,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap4',
-    'makeeya',   
-    'bootstrap3',
+ 
+    'makeeya', 
+    'makeeya',
+    'bootstrap4',  
+    'bootstrap3', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -90,9 +95,11 @@ WSGI_APPLICATION = 'MAKEEYA.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'make',
+        'NAME': 'make', 
         'USER': 'pauline',
     'PASSWORD':'p@nshine87',
+ 
+ 
     }
 }
 # Password validation
