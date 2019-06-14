@@ -7,3 +7,11 @@ class RequestForm(forms.ModelForm):
     class Meta:
         model = Request
         exclude = ['Request_date']
+
+class ItemForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        fields= "__all__"
+   
+
+
