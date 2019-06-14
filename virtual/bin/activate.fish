@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/pauline/Documents/MAKEEYA/virtual"
+set -gx VIRTUAL_ENV "/home/nancy/Desktop/MAKEEYA/virtual"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
