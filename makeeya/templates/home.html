@@ -1,15 +1,138 @@
-<!DOCTYPE <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-  <script src="main.js"></script>
-</head>
-<body>
-  <h1>WELCOME TO MAKEEYA</h1>
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+  <br>
+  <br>
   
+ <br>
+
+<div>
+
+{%for item in items%}
+ <h3>{{item.name}}</h3>
+ <img src ="{{item.picture.url}}">
+ <p>Original Price: {{item.original_Price}}</p>
+ <p>Current Price: {{item.current_price}}</p>
+ <p>Expiry Date: {{item.expiry_date}}</p>
+
+ 
+ {%endfor%}
+
+
+</div>
+
+
+ <br>
+
+
+</div>
+
+</div>
+</div>
+
+<footer class="section footer-classic context-dark bg-image" style="background:#629acf;">
+  <div class="container">
+    <div class="row row-30">
+      <div class="col-md-4 col-xl-5">
+        <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+         
+          <p class="rights"><span>©  </span><span class="copyright-year">2019</span><span> </span><span>MAKEEYA</span><span>. </span><span>All Rights Reserved.</span></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Contacts</h5>
+        <dl class="contact-list">
+          <dt>Address:</dt>
+          <dd>Kigali, Rwanda</dd>
+        </dl>
+        <dl class="contact-list">
+          <dt>email:</dt>
+          <dd><a href="mailto:#"></a></dd>
+        </dl>
+        <dl class="contact-list">
+          <dt>phones:</dt>
+          <dd><a href="tel:#">+250 789631582</a> <span>or</span> <a href="tel:#">+250 787556867</a>
+          </dd>
+        </dl>
+      </div>
+     
+    </div>
+  </div>
+  <div class="row no-gutters social-container">
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+  </div>
+
+
+  <style>
+  
+  .context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
+}
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+    content: "\f14f";
+    font: 400 21px/1 "Material Design Icons";
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
+
+  
+  
+  
+  </style>
+</footer>
+
+
+{% endblock %} {% block scripts %} {{block.super}}
+<script type="text/javascript" src="{%static 'js/scripts.js'%}"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+{% endblock %}
 </body>
-</html>

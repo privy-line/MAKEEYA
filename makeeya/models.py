@@ -1,35 +1,19 @@
 from django.db import models
 from tinymce.models import HTMLField
+ 
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+ 
 from .email import send_notification_email
+ 
 
 class Buyer(models.Model):
     first_name = models.CharField(max_length =100)
     last_name = models.CharField(max_length =100)
     email = models.EmailField()
 
-class Profile(models.Model):
-  business_name = models.CharField(max_length =100)
-  business_description = HTMLField()
-  business_logo = models.ImageField(upload_to='Buyer/',blank=True)
-  business_email = models.EmailField() 
-  business_address = models.CharField(max_length =100)
-
-
-
-class Category(models.Model):
-  name = models.CharField(max_length =100)
-
-class Item(models.Model):
-  name = models.CharField(max_length =100)
-  picture = models.ImageField(upload_to='Buyer/',blank=True)
-  original_Price = models.IntegerField()
-  current_price = models.IntegerField() 
-  expiry_date = models.DateTimeField(auto_now_add=False)
-  category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=False) 
-  profile = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=False) 
-
-
-   
+ 
 class Request(models.Model):
   business_name = models.CharField(max_length =100)
   business_identification_number = models.CharField(max_length =100)
@@ -44,8 +28,71 @@ class Request(models.Model):
   def save_request(self):
         self.save()
     
+ 
+ 
+
+class Profile(models.Model):
+  user=models.OneToOneField(User,on_delete=models.CASCADE,null=True)
+  business_name = models.CharField(max_length =100)
+  business_description = HTMLField()
+  business_logo = models.ImageField(upload_to='Buyer/',blank=True)
+  business_email = models.EmailField() 
+  business_address = models.CharField(max_length =100)
+
+  @receiver(post_save, sender=User)
+  def update_user_profile(sender, instance, created, **kwargs):
+      if created:
+          Profile.objects.create(user=instance)
+      instance.profile.save()
+
+
+  def __str__(self):
+    return self.business_name
+
+
+  def save_profile(self):
+      self.save()
+
+  @classmethod
+  def get_profile_by_id(cls, id): 
+      profile = profile.objects.get(user = id)
+      return profile
+
+
+  @classmethod
+  def edit_profile(cls, update):
+      pass
+
+  
+  @classmethod
+  def get_seller_items(cls,profile):        
+      items = Item.objects.filter(profile__pk = profile)
+      return items
     
-   
+class Category(models.Model):
+  name = models.CharField(max_length =100)
+
+
+
+class Item(models.Model):
+  name = models.CharField(max_length =100)
+  picture = models.ImageField(upload_to='Buyer/',blank=True)
+  original_Price = models.IntegerField()
+  current_price = models.IntegerField() 
+  expiry_date = models.DateTimeField(auto_now_add=False)
+  category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=False) 
+  profile = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=False) 
+
+
+  @classmethod
+  def get_all_items(cls):
+      items = Item.objects.all()
+      return items
+
+ 
+ 
+    
+    
  
 
  
