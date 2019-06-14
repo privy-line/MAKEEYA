@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'makeeya',
+    'bootstrap4',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'make',
-        'USER': 'pauline',
-    'PASSWORD':'kalioli050718',
+        'USER': 'nicole',
+    'PASSWORD':'123456',
     }
 }
 # Password validation
