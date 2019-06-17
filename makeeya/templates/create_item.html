@@ -1,8 +1,9 @@
-<<<<<<< HEAD
-=======
-{}
+ 
+{% load bootstrap4 %} {% load staticfiles %}
+{% block content %}
+ 
 
->>>>>>> master
+ 
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
@@ -10,16 +11,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Page Title</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block styles %} {% bootstrap_css %}
   <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+  {% endblock %}
   <script src="main.js"></script>
 </head>
 <body>
 
-<form  action="{%url 'create_medecines'%}" method="post" enctype="multipart/form-data"   style= " margin-top:10%;margin-bottom:auto;">
-    <center><h2> Add a New Items  to Your list</h2></center>
-      {%csrf_token%} {% bootstrap_form form%}
-      <input style="background-color: rgb(131, 147, 160)" type="submit" class="btn btn-success btn-lg" value="Post" />
-    </form>  </center>
+<form  action="{%url 'create_item' profile.id %}" method="post" enctype="multipart/form-data"   style= " margin-top:10%;margin-bottom:auto;">
+  <center><h2> Add a New Items  to Your list</h2></center>
+  {%csrf_token%}
+  {% bootstrap_form form%} 
+  <input style="background-color: rgb(131, 147, 160)" type="submit" class="btn btn-success btn-lg" value="Post" />
+</form>
   
 </body>
 </html>
+{% endblock %}

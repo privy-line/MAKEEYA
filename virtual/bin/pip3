@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-#!/home/nicole/Documents/MAKEEYA/virtual/bin/python
-=======
-#!/home/nancy/Desktop/MAKEEYA/virtual/bin/python
->>>>>>> origin
+#!/home/juru/Desktop/PROJECTS/MAKEEYA/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

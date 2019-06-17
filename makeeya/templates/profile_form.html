@@ -1,4 +1,3 @@
-
 {% load bootstrap4 %} {% load staticfiles %}
 {% block content %}
 <!DOCTYPE html>
@@ -15,15 +14,22 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endblock %}
 
 </head>
-
-  <form  action="{%url 'profile' user.id %}" method="post" enctype="multipart/form-data" style="color:white;font-size:24px;">
+<body>
+  <form  action="{%url 'profile' user.id %}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
+
+      Business name:<br>
+      <input type="text" name="business_name" value="{{profile.business_name}}">
+      <br>
+      Business description:<br>
+      <input type="text" name="business_description" value="{{profile.business_description}}"> 
+      
+    <input type="submit" name="post" class="btn btn-success btn-lg" value="Post">
   </form>
-</div>
-   {% block scripts %}
+
+  {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %} {% endblock %}
 
