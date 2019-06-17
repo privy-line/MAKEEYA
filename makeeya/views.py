@@ -37,8 +37,7 @@ def myProfile(request,id):
     
     return render(request,'profile.html',{"form":form,"profiles":profiles,"user":user})
 
-=======
->>>>>>> origin
+ 
 def post_request(request):    
     if request.method == 'POST':
         form = RequestForm(request.POST, request.FILES)
@@ -73,4 +72,4 @@ def create_item(request,profile_id):
         form = ItemForm()
    return render(request, 'create_items.html', {"form": form})
     
->>>>>>> origin
+ 

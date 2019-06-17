@@ -44,8 +44,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
  
-    'makeeya', 
-    'makeeya',
+    'makeeya',     
     'bootstrap4',  
     'bootstrap3', 
     'django.contrib.admin',

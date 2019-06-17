@@ -19,10 +19,9 @@ from django.contrib.auth import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'',include('makeeya.urls')),
-<<<<<<< HEAD
+    url(r'',include('makeeya.urls')), 
     url(r'^accounts/', include('registration.backends.simple.urls')),
-=======
+ 
      url(r'^tinymce/', include('tinymce.urls')),
->>>>>>> origin
+ 
 ]
