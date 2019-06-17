@@ -10,10 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
 from decouple import config
 import os
 
@@ -46,11 +42,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bootstrap4',
     'makeeya',
-    'bootstrap4',
-<<<<<<< HEAD
-=======
     'bootstrap3',
->>>>>>> origin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,8 +50,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tinymce',
-    
-
 ]
 
 MIDDLEWARE = [
@@ -99,13 +89,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'make',
-<<<<<<< HEAD
-        'USER': 'nicole',
-    'PASSWORD':'123456',
-=======
-        'USER': 'nancy',
-    'PASSWORD':'adelice',
->>>>>>> origin
+        'USER': 'juru',
+    'PASSWORD':'juru10',
     }
 }
 # Password validation

@@ -1,116 +1,24 @@
 
 {% block content %}
-{{block.super}}
 <head>
-      <link href="https://fonts.googleapis.com/css?family=Alegreya|Amatic+SC|EB+Garamond|Teko|Varela+Round" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Alegreya|Amatic+SC|Dancing+Script|EB+Garamond|Fredoka+One|Josefin+Slab|Teko|Varela+Round" rel="stylesheet">
-      <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-      <!------ Include the above in your HEAD tag ---------->
-      
-      <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+     
 </head>
-<body style="background-image: url(https://images.pexels.com/photos/1020315/pexels-photo-1020315.jpeg);background-size: cover;">
+<body>
     <div class = "container">
 
-      <!-- <div id="prof">
-         <div class="jumbotron">
-               <h4><center  style="font-family: monospace;">{{user.username|upper}},</center></h4>
-               <p style="font-family: monospace;"> <center style="font-family: monospace;text-shadow: cadetblue;"><strong>Below is all your informations registered on tis account.</strong></center></p>
-           </div>     
-    <div class="row">
-      <div class="col-md-6">
-            <h3 class="row" style="margin-left: 30px;"><strong>   {{profiles.first_name}}  {{profiles.last_name}}</strong></h3>
-            <img src="{{profiles.profile_pic.url}}"  class="img-responsive" alt="Image" style="border-radius:50%;height:250px;width: 260px">
-            <p>Last edit : {{profiles.pub_date}}</p>
-            <hr>
-      </div>
-      <div class="col-md-6">
-            <p>{{profiles.bio}}</p>
-            <h3>Contact</h3>
-            ----------------
-            <p><strong>Tel NUmber</strong> : {{profiles.phone_number}}</p>
-            <p><strong>Email</strong> : {{profiles.email}}</p>
-            <h3>Location</h3>
-            -----------------
-            <p><strong>City :</strong>{{profiles.city}}</p>
-            <p><strong>Country :</strong>{{profiles.country}}</p>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-md-6">
-            {% autoescape on %}
-                  {{profiles.bio| safe}}
-           {% endautoescape %}</p>
-      </div>
-      <div class="col-md-6">
-            {% autoescape on %}
-            {{profiles.more| safe}}
-           {% endautoescape %}</p>
-       
-      </div>
-   </div>
-   </div> -->
  
-<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
-	<div class="row panel">
-		<div class="col-md-4 bg_blur ">
-    	    <h4>Event Organiser</h4>
-		</div>
-        <div class="col-md-8  col-xs-12">
-           <img src="{{profiles.profile_pic.url}}" class="img-thumbnail picture hidden-xs" />
-           <img src="{{profiles.profile_pic.url}}" class="img-thumbnail visible-xs picture_mob" />
-           <div class="header">
-                <h1>{{profiles.first_name}}  {{profiles.last_name}}</h1>
-                
-                <span> <div class="row">
-                        <div class="col-md-6">
-                              {% autoescape on %}
-                                    {{profiles.bio| safe}}
-                             {% endautoescape %}</p>
-                  
-                        </div>
-                        <div class="col-md-6">
-                              {% autoescape on %}
-                              {{profiles.more| safe}}
-                             {% endautoescape %}</p>
-                         
-                        </div>
-                     </div></span>
-           </div>
+        <div>
+            <div class="row panel">
+                <div class="col-md-4 bg_blur ">
+                    <h4>SELLER</h4>
+                </div>
+                <h2>{{profile.business_name}}</h2>
+                <p>{{profile.business_description}}</p>
+            </div>
+            <button><a  href="{% url 'profile' user.id %}" >EDIT PROFILE</a></button>
         </div>
-    </div>   
-    
-	<div class="row nav">    
-        <div class="col-md-4"></div>
-        <div class="col-md-12" style="margin: 0px;padding: 0px;">
-            <div class="col-md-3 col-xs-3 well">{{profiles.phone_number}}</div>
-            <div class="col-md-3 col-xs-3 well">{{profiles.email}}</div>
-            <div class="col-md-3 col-xs-3 well">{{profiles.city}}, {{profiles.country}}</div>
-        </div>
+    <button><a  href="{% url 'create_item' profile.id %}" >ADD PRODUCT</a></button>
     </div>
-</div>
-
-   {% for ev in event %}
-   
-   <div class="row">
-            <p><center>{{ev.title}}</p></center>
-            <div class="col-md-6">
-                  <p>{% autoescape on %}
-                        {{ev.description| safe}}
-            {% endautoescape %}</p>
-
-            </div>
-            <div class="col-md-6">
-            <!-- video -->
-            
-            </div>
-   </div>
-   <a href="{%url 'price'  ev.id%}">ADD PRICE</a>
-   {% endfor %}
-    </div>  
 </body>
 
 </html>
