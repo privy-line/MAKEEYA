@@ -25,53 +25,66 @@
 
 <body>
 
-<<<<<<< HEAD
-<nav class="navbar navbar-expand-sm bg-blue navbar-blue">
-=======
 
 <nav style="background-color: darkblue;color:#ffffff"class="navbar navbar-expand-sm  navbar">
->>>>>>> master
         <ul class="navbar-nav">
           <li class="nav-item active">
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="/">
                   <img style="font-size: 50%" src="images/1.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
                  MAKEEYA
                 </a>
             
           </li>
           
-<<<<<<< HEAD
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'last_day' %}">Last day sales</a>
-=======
           <li style="color: darkorange"class="nav-item">
             <a class="nav-link" href="">Last day sales</a>
->>>>>>> master
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Categories
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-               <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Food Items</a>
+               <a class="dropdown-item" href="#">Cosmetics and Toileteries</a>
+              
               </div>
+              
             </li>
           </li>
-          <li style="" class="nav-item">
-            <a class="nav-link" href="/accounts/login/">Login</a>
-          </li>
+          
+         
           
         </ul>
        
-        {% if user.is_authenticated %}
-        
-        <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <div class =""> 
+          <ul class="nav navbar-nav navbar-right">
+              <li style="color: darkorange"class="nav-item">
+                   
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      My Makeeya
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href=" ">My Vendor Profile</a>
+                     <a class="dropdown-item" href="#">My Cart</a>                      
+                    </div>                    
+                  </li>
+                </li>
+          
+          
+          
           <li class=nav-item>
             <a class="nav-link" href="/logout">Logout</a>
           </li>
         </ul>
+        {%else%}
+        <ul>
+        <li class="nav-item">
+            <a class="nav-link" href="/accounts/login/">Login</a>
+          </li>
+        </ul>
     
-        {% endif %}
+          {% endif %}
+        </div> 
+        
       </nav> 
-    

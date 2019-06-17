@@ -13,7 +13,7 @@ from django.contrib import messages
  
  
 def home(request):
-  return render(request,'home.html')
+   return render(request,'home.html')
 
  
  
@@ -32,7 +32,7 @@ def profile(request,edit):
             profile.user=current_user
             
             profile.save()
-            return redirect('home')
+            return redirect('myProfile')
     else:
         form = ProfileForm()
     return render(request, 'profile_form.html', {"form": form,'user':current_user,"profile":profile})

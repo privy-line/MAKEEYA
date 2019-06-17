@@ -9,13 +9,8 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
-<<<<<<< HEAD
-=======
  
  
- 
->>>>>>> master
 from decouple import config
 import os
 
@@ -46,16 +41,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-    'bootstrap4',
-    'makeeya',
-    'bootstrap3',
-=======
+ 
+   
  
     'makeeya',     
     'bootstrap4',  
     'bootstrap3', 
->>>>>>> master
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -100,18 +91,13 @@ WSGI_APPLICATION = 'MAKEEYA.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-<<<<<<< HEAD
-        'NAME': 'make',
-        'USER': 'juru',
-    'PASSWORD':'juru10',
-=======
+        'ENGINE': 'django.db.backends.postgresql', 
         'NAME': 'make', 
         'USER': 'pauline',
     'PASSWORD':'p@nshine87',
  
  
->>>>>>> master
+ 
     }
 }
 # Password validation
@@ -151,4 +137,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL='homePage'
+LOGIN_REDIRECT_URL='home'
