@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 #!/home/juru/Desktop/PROJECTS/MAKEEYA/virtual/bin/python
+=======
+
+#!/home/nancy/Desktop/MAKEEYA/virtual/bin/python
+
+>>>>>>> master
 # -*- coding: utf-8 -*-
 import re
 import sys

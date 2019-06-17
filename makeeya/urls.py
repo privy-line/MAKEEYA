@@ -5,6 +5,7 @@ from . import views
 
 urlpatterns=[
     url('^$',views.home,name = 'home'), 
+ 
     url(r'^profile/(\d+)',views.profile,name ='profile'),
     url(r'^profiles/(\d+)',views.myProfile,name ='myProfile'),
     url(r'^request/$', views.post_request, name='post_request'),
@@ -14,3 +15,6 @@ urlpatterns=[
 
 if settings.DEBUG:
     urlpatterns+= static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
+ 
+ 
+ 

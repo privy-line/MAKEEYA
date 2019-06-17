@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
+ 
+ 
 Hello {{Contact_name}}
 
 Thank you for your interest in MAKEEYA services. 
@@ -10,9 +8,5 @@ Please wait while we authenticate your details, we will get back to you on this 
 Note that this is an automatic email, so you do not have to reply. 
 
 Regards,
-<<<<<<< HEAD
+ 
 MAKEEYA Team
-
-=======
-MAKEEYA Team
->>>>>>> origin

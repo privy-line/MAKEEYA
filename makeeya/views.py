@@ -1,3 +1,4 @@
+ 
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from django.http import HttpResponseRedirect
@@ -6,13 +7,17 @@ from django.contrib.auth.decorators import login_required
 from .models import Profile,Request,Buyer,Item
 from .forms import ProfileForm,RequestForm,ItemForm
 from .email import send_notification_email
-import datetime
-
-# Create your views here.
+import datetime  
+from django.contrib import messages
+ 
+ 
+ 
 def home(request):
   return render(request,'home.html')
 
-# @login_required(login_url='/accounts/login/')
+ 
+ 
+@login_required(login_url='/accounts/login/') 
 def profile(request,edit):
     current_user = request.user
     profile=Profile.objects.get(user=current_user)
@@ -38,6 +43,8 @@ def myProfile(request,id):
     
     return render(request,'profile.html',{"profile":profile,"user":user})
 
+ 
+ 
 def post_request(request):    
     if request.method == 'POST':
         form = RequestForm(request.POST, request.FILES)
@@ -51,8 +58,13 @@ def post_request(request):
             return redirect('home')
   
     else:
-        form = RequestForm()
-    return render(request, 'register.html',{'form':form})    
+        
+ 
+        form =RequestForm()
+ 
+    return render(request, 'request_form.html',{'form':form})
+
+ 
 
 @login_required(login_url='/accounts/login/')
 def create_item(request,id):
@@ -74,3 +86,4 @@ def last_day(request):
     last_day_items = Item.objects.filter(expiry_date=today)
     return render(request,'home.html',{"last_day_items":last_day_items})
     
+ 

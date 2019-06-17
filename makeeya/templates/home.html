@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+
 {% load static %}
 {% block content %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
 <div class="container">
   <br>
   <br>
@@ -26,7 +33,7 @@
 </div>
 </div>
 
-<footer class="section footer-classic context-dark bg-image" style="background:#629acf;">
+<footer class="section footer-classic context-dark bg-image" style="background:darkblue;">
   <div class="container">
     <div class="row row-30">
       <div class="col-md-4 col-xl-5">
@@ -37,30 +44,24 @@
       </div>
       <div class="col-md-4">
         <h5>Contacts</h5>
-        <dl class="contact-list">
-          <dt>Address:</dt>
-          <dd>Kigali, Rwanda</dd>
-        </dl>
-        <dl class="contact-list">
-          <dt>email:</dt>
-          <dd><a href="mailto:#"></a></dd>
-        </dl>
-        <dl class="contact-list">
-          <dt>phones:</dt>
-          <dd><a href="tel:#">+250 789631582</a> <span>or</span> <a href="tel:#">+250 787556867</a>
-          </dd>
-        </dl>
-      </div>
+        <p>call us on:</p>
+        <i class="material-icons">&#xe0b0;</i><span>+250789631582</span>
      
     </div>
   </div>
-  <div class="row no-gutters social-container">
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-    <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
-  </div>
-
+  
+  
+  <div class="social-media-icons col-xs-12">
+          <ul class="list-inline col-xs-12">
+            <a href="#"><i class="fa fa-google-plus-square fa-3x"></i></a>
+            <a href="#"><i class="fa fa-twitter-square fa-3x"></i></a>
+            
+            <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>               
+          </ul>
+        </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
 
   <style>
   
@@ -88,20 +89,7 @@ ul, ol {
     margin: 0;
 }
 
-.social-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 23px;
-    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-}
 
-.social-container .col {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
 .nav-list li a:before {
     content: "\f14f";
     font: 400 21px/1 "Material Design Icons";
@@ -115,7 +103,37 @@ ul, ol {
     transition: .22s ease;
 }
 
-  
+.social-media-icons ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.social-media-icons a {	
+	display: inline-block;
+	text-decoration: none;
+	padding: 7px;
+}
+
+.social-media-icons a:nth-child(1) i {
+	color: #d34836;
+}
+
+.social-media-icons a:nth-child(2) i {
+	color: #4099FF;
+}
+
+.social-media-icons a:nth-child(3) i {
+	color: #b31217;
+}
+
+.social-media-icons a:nth-child(4) i {
+	color: #FF6600;
+}
+
+.social-media-icons a i:hover{
+	color: black;
+}  
   
   
   </style>
