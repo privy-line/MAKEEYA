@@ -19,13 +19,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-<<<<<<< HEAD
-    url(r'',include('makeeya.urls')), 
-    url(r'^accounts/', include('registration.backends.simple.urls')),
- 
-     url(r'^tinymce/', include('tinymce.urls')),
- 
-=======
+
     url(r'',include('makeeya.urls')),
 
 
@@ -36,5 +30,4 @@ urlpatterns = [
     url(r'^logout/$',views.logout, {"next_page": '/'}),
     
 
->>>>>>> a0e7775186fd811d3eac00695f879aa51c91e5d4
 ]
