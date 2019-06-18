@@ -1,43 +1,62 @@
+ 
 from django.shortcuts import render,redirect 
 from django.http  import HttpResponse,HttpResponseRedirect
 from .forms import RequestForm, ItemForm
 from django.contrib import messages
 from .models import Buyer,Profile, Request, Category,Item
 from .email import send_notification_email
-from django.contrib.auth.decorators import login_required
  
-# Create your views here.
+from django.shortcuts import render,redirect
+from django.http  import HttpResponse
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+ 
+from django.contrib.auth.decorators import login_required
+from .models import Profile,Request,Buyer,Item
+from .forms import ProfileForm,RequestForm,ItemForm
+from .email import send_notification_email
+import datetime  
+from django.contrib import messages
+ 
+ 
+ 
 def home(request):
     items = Item.get_all_items()
-    return render(request,'home.html',{"items":items})
-
+    user = User.objects.filter().first()
+    profile = Profile.objects.filter(id = user.profile.id).first()
+    return render(request,'home.html',{"items":items,"profile":profile})
  
-@login_required(login_url='/accounts/login/')
+ 
+ 
+@login_required(login_url='/accounts/login/') 
 def profile(request,edit):
     current_user = request.user
     profile=Profile.objects.get(user=current_user)
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
-            profile.business_name=form.cleaned_data['business_name']
-            profile.business_description=form.cleaned_data['business_description']
+            profile.business_name=form.data
+            profile.business_description=form.data
             profile.business_logo = form.cleaned_data['business_logo']
             profile.business_email = form.cleaned_data['business_email']
             profile.business_address = form.cleaned_data['business_address']
             profile.user=current_user
             
             profile.save()
-            return redirect(home)
+            return redirect('myProfile')
     else:
         form = ProfileForm()
-    return render(request, 'profile_form.html', {"form": form,'user':current_user})
+    return render(request, 'profile_form.html', {"form": form,'user':current_user,"profile":profile})
 
-def myProfile(request,id):
-    user = User.objects.get(id = id)
-    profiles = Profile.objects.get(user = user)
     
-    return render(request,'profile.html',{"profiles":profiles,"user":user})
+@login_required(login_url='/accounts/login/') 
+def myProfile(request,id):
+    user = User.objects.filter(id = id).first()
+    profile = Profile.objects.filter(id = user.profile.id).first()
+ 
+    return render(request,'profile.html',{"profile":profile,"user":user})
 
+ 
  
 def post_request(request):    
     if request.method == 'POST':
@@ -52,43 +71,53 @@ def post_request(request):
             return redirect('home')
   
     else:
+        
         form =RequestForm()
  
     return render(request, 'request_form.html',{'form':form})
 
+ 
+def buyer_register(request):
+   current_user = request.user
+   if request.method == 'POST':
+        form = PharmacyForm(request.POST, request.FILES)
+        if form.is_valid():
+            pharmacy = form.save(commit=False)
+            pharmacy.user = current_user
+            pharmacy.save()
+        return redirect('view_pharmacy')
+   else:
+        form = PharmacyForm()
+   return render(request, 'pharma-form.html', {"form": form})
+
+ 
 
 
-# @login_required(login_url='/accounts/login/')
-# def create_item(request,id):
-#    profile = Profile.objects.get(id=id)
-# #    seller = Profile.objects.filter(id=profile.first)  
-#    if request.method == 'POST':
-#         form = ItemForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             item = form.save(commit=False)
-#             items.profile = profile
-#             items.save()
-#         return redirect('view_profile')
-#    else:
-#         form = ItemForm()
-#    return render(request, 'create_items.html', {"form": form})
     
+
+ e":profile})
+
 
 @login_required(login_url='/accounts/login/')
 def create_item(request):
-   current_user = request.user
-   profile = Profile.objects.get(user=current_user)
-   if request.method == 'POST':
+    current_user = request.user
+    user = User.objects.filter().first()
+    profile = Profile.objects.filter(id = user.profile.id).first()
+    if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
             items = form.save(commit=False)
             items.profile = profile
             items.save()
-        return redirect('view_profile')
-   else:
-        form = ItemForm()
-   return render(request, 'create_items.html', {"form": form})
+        return redirect('myProfile',user.profile.id)
+    else:
+        form =ItemForm()
+    return render(request, 'create_item.html',{"form": form,"profile":profile})
 
 
-
+def last_day(request):
+    today = datetime.date.today()
+    last_day_items = Item.objects.filter(expiry_date=today)
+    return render(request,'home.html',{"last_day_items":last_day_items})
+    
  
