@@ -95,7 +95,21 @@ def buyer_register(request):
 
     
 
- e":profile})
+# @login_required(login_url='/accounts/login/') 
+# def create_item(request):
+#     current_user = request.user
+#     profile = Profile.objects.filter().first()    
+#     if request.method == 'POST':
+#        form = ItemForm(request.POST, request.FILES)
+#     if form.is_valid():
+#         items = form.save(commit=False)
+#         items.profile = profile
+#         items.save()
+#         return redirect('myProfile')
+#     else:
+#         form = ItemForm()
+ 
+#     return render(request, 'create_item.html', {"form": form,"profile":profile})
 
 
 @login_required(login_url='/accounts/login/')

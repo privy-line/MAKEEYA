@@ -99,14 +99,24 @@ class Category(models.Model):
 
 class Item(models.Model):
   name = models.CharField(max_length =100)
-  picture = models.ImageField(upload_to='Buyer/',blank=True)
+  picture = models.ImageField(upload_to='',blank=True)
   original_Price = models.IntegerField()
   current_price = models.IntegerField() 
   expiry_date = models.DateTimeField(auto_now_add=False)
-  category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=False) 
- 
- 
+  category = models.ForeignKey(Category,on_delete=models.CASCADE,blank=False)  
   profile = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=False) 
+
+
+  def __str__(self):
+        return self.name
+
+  def save_medecine(self):
+        self.save()
+    
+  @classmethod
+  def update_price(cls, update):
+      pass 
+
 
  
   @classmethod
